@@ -1,17 +1,20 @@
 pipeline {
+	// agent any
+	agent { docker { image 'maven:3.6.3'} } 
 	stage('Build') {
 		steps {
-			echo "Build"
+			echo 'mvn --version'
+			echo "Build Novo"
 		}
 	}
 	stage('Test') {
 		steps {
-			echo "Test"
+			echo "Test Novo"
 		}
 	}
 	stage('Integration Test') {
 		steps {
-			echo "Integration Test"
+			echo "Integration Test Novo"
 		}
 	} post {
 		always {
