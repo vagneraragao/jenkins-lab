@@ -13,5 +13,15 @@ pipeline {
 		steps {
 			echo "Integration Test"
 		}
-	} 
+	} post {
+		always {
+			echo "I Run Always !"
+		}
+		success {
+			echo "I Run OK !"
+		}
+		failure {
+			echo "I Run when you fail"
+		}
+	}
 }
