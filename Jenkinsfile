@@ -7,6 +7,11 @@ pipeline {
 				sh 'mvn --version'
 				echo "Build Novo"
 			}
+		stage('Test') {
+			steps {
+				echo "Teste Novo"
+			}
+
 		}
 	}
 }
