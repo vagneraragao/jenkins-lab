@@ -42,14 +42,18 @@ pipeline {
 		}
 		stage('Build Docker Image') {
 			steps {
-				dockerImage = docker.build("in28min/currency-exchange-devops:${env.BUILD_TAG}")
+				script {
+					dockerImage = docker.build("in28min/currency-exchange-devops:${env.BUILD_TAG}")
+				}
 			}
 		}
 		stage('Push Docker Image') {
 			steps {
-				docker.withRegistry('','dockerhub') {
-					dockerImage.push();
-					dockerImage.push('latest');
+				script {
+					docker.withRegistry('','dockerhub') {
+						dockerImage.push();
+						dockerImage.push('latest');
+					}
 				}
 			}
 		}
